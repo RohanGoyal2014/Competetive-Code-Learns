@@ -20,19 +20,19 @@ bool compare(edge a,edge b)
 void dfs(long n,bool exists[][130],long root,int visited[])
 {
     visited[root]=1;
-    cout<<"Visited"<<root<<endl;
+    //cout<<"Visited"<<root<<endl;
     for(int i=0;i<n;++i)
     {
         if(exists[root][i])
         {
-            cout<<root<<" "<<i<<endl;
+            //cout<<root<<" "<<i<<endl;
             if(visited[i]==0)
             {
                 dfs(n, exists, i, visited);
             }
         }
     }
-    cout<<root<<" ended\n";
+    //cout<<root<<" ended\n";
 }
 int main()
 {
@@ -68,6 +68,7 @@ int main()
     }
     sort(v.begin(),v.end(),compare);
     vector<edge> soln;
+    long count=0;
     for(long i=0;i<v.size();++i)
     {
         int visited[130]={0};
@@ -85,19 +86,24 @@ int main()
         }
         if(!isConnected)
         {
-            cout<<"Not connected\n";
+            //cout<<"Not connected\n";
             exists[v[i].u][v[i].v]=!exists[v[i].u][v[i].v];
             exists[v[i].v][v[i].u]=!exists[v[i].v][v[i].u];
         }
         else
         {
-            cout<<"Connected\n";
+            //cout<<"Connected\n";
             soln.push_back(v[i]);
         }
+        if(soln.size()==k)
+        {
+            //cout<<"Broken";
+            break;
+        }
     }
-    /*cout<<soln.size()<<endl;
+    cout<<soln.size()<<endl;
     for(long i=0;i<soln.size();++i)
     {
         cout<<soln[i].u+1<<" "<<soln[i].v+1<<endl;
-    }*/
+    }
 }
