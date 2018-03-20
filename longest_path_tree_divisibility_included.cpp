@@ -1,5 +1,5 @@
 /*
- * This is to find the longest path in a multichildren graph
+ * This is to find the longest path in a multichildren tree
  * where the path has all the elements divisible by k
  * I have used boolean array and stored true when a[i] is divisible by k
  * otherwise stored false
