@@ -1,4 +1,4 @@
-//N prepocessing for building tree rather accessing levels
+//N preprocessing for building tree rather accessing levels
 //logN time to reach same level and love up until the values become common
 //The target was to find maximum valued state at the end when all nodes from path u to v
 //are incremented by 1.
