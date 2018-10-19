@@ -16,22 +16,33 @@ void quick_sort(vector<int> &v,int start,int end)
         }
     }
     swap(v[pivot],v[i+1]);
-//    for(int i=0;i<v.size();++i)
-//    {
-//        cout<<v[i]<<" ";
-//    }
-    cout<<endl;
-    if(end-start>=2)
+    if(end-start+1>=2)
     {
-        quick_sort(v,start,i);
-        quick_sort(v,i+2,pivot);
+        if(start<=i)
+        {
+            quick_sort(v,start,i);
+        }
+        if(i+2<=pivot)
+        {
+            quick_sort(v,i+2,pivot);
+        }
     }
 }
 int main()
 {
-//    ios_base::sync_with_stdio(false);
-//    cin.tie(nullptr);
-    vector<int> v={5,3,1,8,6,8,6,9,4};
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int n;
+    cin>>n;
+    vector<int> v(n);
+    for(int i=0;i<n;++i)
+    {
+        cin>>v[i];
+    }
     quick_sort(v,0,v.size()-1);
+    for(int i=0;i<v.size();++i)
+    {
+        cout<<v[i]<<" ";
+    }
     return 0;
 }
