@@ -1,160 +1,79 @@
 /*
- * Create MST
- * Then for all edges not in MST, start from leaf node of MST and set all edges out from it
- * Finally set directions of MST edges starting from leafs so that all in degrees are even property
- * is satisfied and finally if root has odd degree output -1 else answer is possible
- * https://www.codechef.com/DEC18A/problems/EDGEDIR
- */
+dp[i]=dp[i-1]+dp[i-2]
+dp[1]=2;
+dp[2]=3;
+1<=i<=10^18
+*/
 #include<bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
 #define mkp(a,b) make_pair(a,b)
 #define eb emplace_back
 #define mod (long long)(1e9+7)
+#define FILE_READ freopen("input.txt","r",stdin)
+#define FILE_WRITE freopen("output.txt","w",stdout)
 using namespace std;
-typedef long long l;
+using namespace __gnu_pbds;
+typedef long long ll;
 typedef unsigned long ul;
-typedef pair<l,l> pll;
+typedef pair<ll,ll> pll;
 typedef pair<int,int> pii;
 typedef long double ld;
+typedef tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
 
-class data
+vector<vector<ll>> multiply(vector<vector<ll>> a,vector<vector<ll>> b)
 {
-public:
-    int val;
-    int d;
-    int pi;
-    data()= default;
-    data(int val,int d,int pi)
-    {
-        this->val=val;
-        this->d=d;
-        this->pi=pi;
-    }
-};
-class compare
-{
-public:
-    bool operator() (data a,data b)
-    {
-        return a.d>b.d;
-    }
-};
+    vector<vector<ll>> tmp={{0,0},{0,0}};
+    tmp[0][0]=((a[0][0]*b[0][0])%mod+(a[0][1]*b[1][0])%mod)%mod;
+    tmp[0][1]=((a[0][0]*b[0][1])%mod+a[0][1]*b[1][1]%mod)%mod;
+    tmp[1][0]=((a[1][0]*b[0][0])%mod+a[1][1]*b[1][0]%mod)%mod;
+    tmp[1][1]=((a[1][0]*b[0][1])%mod+a[1][1]*b[1][1]%mod)%mod;
+    return tmp;
+}
 
-void traverse(int root,int pi[],vector<int> nbs[],int visited[],int ins[],vector<int> mst[],set<pii> &directions)
+void matrixExponentation(vector<vector<ll>> a,vector<vector<ll>> mat_exp[])
 {
-    for(int i=0;i<mst[root].size();++i)
+    mat_exp[0]=a;
+    for(int i=1;i<100000;++i)
     {
-        traverse(mst[root][i],pi,nbs,visited,ins,mst,directions);
-    }
-    visited[root]=1;
-    for(int i=0;i<nbs[root].size();++i)
-    {
-        if(!visited[nbs[root][i]] && pi[root]!=nbs[root][i])
-        {
-            directions.insert(mkp(root,nbs[root][i]));
-            ins[nbs[root][i]]++;
-        }
+        mat_exp[i]=multiply(mat_exp[i-1],a);
     }
 }
-void traverse2(int root,vector<int> mst[],int ins[],int pi[],set<pii> &directions)
+vector<vector<ll>> perform(ll n,vector<vector<ll>> mat_exp[])
 {
-    for(int i=0;i<mst[root].size();++i)
+    if(n<=100000)
     {
-        traverse2(mst[root][i],mst,ins,pi,directions);
+        return mat_exp[n-1];
     }
-//    cout<<"At "<<root<<endl;
-    if(ins[root]%2==0)
+    vector<vector<ll>> _=perform(n/2,mat_exp);
+    if(n%2==0)
     {
-        if(root!=1)
-        {
-            directions.insert(mkp(root,pi[root]));
-            ins[pi[root]]++;
-        }
+        return multiply(_,_);
     }
-    else
-    {
-        if(root!=1)
-        {
-            directions.insert(mkp(pi[root],root));
-            ins[root]++;
-        }
-    }
+    return multiply(multiply(_,_),mat_exp[0]);
 }
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
+    cout.tie(nullptr);
+//    FILE_READ;
+//    FILE_WRITE;
+
+    vector<vector<ll>> a={{1,1},{1,0}};
+    vector<vector<ll>> mat_exp[100000];
+    matrixExponentation(a,mat_exp);
 
     int t;
     cin>>t;
     while(t--)
     {
-        int n,m;
-        cin>>n>>m;
-        vector<int> nbs[n+1],mst[n+1];
-        vector<pii> edges;
-        for(int i=0;i<m;++i)
-        {
-            int u,v;
-            cin>>u>>v;
-            nbs[u].eb(v);
-            nbs[v].eb(u);
-            edges.eb(u,v);
-        }
-        int visited[n+1]={0};
-        int pi[n+1]={0};
-        priority_queue<data,vector<data>,compare> pq;
-        pq.push(data(1,0,-1));
-        int d[n+1];
-        for(int i=0;i<=n;++i)
-        {
-            d[i]=INT_MAX;
-        }
-        while(!pq.empty())
-        {
-            data curr=pq.top();
-            pq.pop();
-            if(visited[curr.val])
-            {
-                continue;
-            }
-            visited[curr.val]=1;
-            if(curr.pi!=-1)
-            {
-                pi[curr.val]=curr.pi;
-                mst[curr.pi].eb(curr.val);
-            }
-            for(int i=0;i<nbs[curr.val].size();++i)
-            {
-                if(!visited[nbs[curr.val][i]])
-                {
-                    pq.push(data(nbs[curr.val][i],1,curr.val));
-                }
-            }
-        }
-        set<pii> directions;
-        memset(visited,0, sizeof(visited));
-        int ins[n+1]={0};
-        traverse(1,pi,nbs,visited,ins,mst,directions);
-        traverse2(1,mst,ins,pi,directions);
-        if(ins[1]%2==1)
-        {
-            cout<<"-1\n";
-            continue;
-        }
-        for(auto i:edges)
-        {
-//            cout<<i.first<<" "<<i.second<<endl;
-            if(directions.find(i)!=directions.end())
-            {
-                cout<<"0 ";
-            }
-            else
-            {
-                cout<<"1 ";
-            }
-        }
-        cout<<endl;
+        ll n;
+        cin>>n;
+        auto res=perform(n-2,mat_exp);
+        ll ans=(res[0][0]+res[1][0])%mod;
+        cout<<ans<<endl;
     }
 
     return 0;
