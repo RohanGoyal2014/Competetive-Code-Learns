@@ -74,11 +74,11 @@ int main()
         nbs[edges[i].first].eb(edges[i].second);
         nbs[edges[i].second].eb(edges[i].first);
     }
-
+    //Graph is initially disconnected so we loop through vertices
     for(int i=0;i<n;++i)
     {
         if(!vis[i])
-        dfs(0, -1, vis, low, disc_time, nbs);
+        dfs(i, -1, vis, low, disc_time, nbs);
     }
 
     int q;
