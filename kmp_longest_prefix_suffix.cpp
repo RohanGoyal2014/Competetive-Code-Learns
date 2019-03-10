@@ -1,7 +1,7 @@
 /*
  * Longest Prefix that is also a suffix
  * (Used in KMP Algorithm for pattern matching)
- *
+ * Link of problem: https://codeforces.com/contest/1138/problem/D
  * */
 
 #include<bits/stdc++.h>
