@@ -2,6 +2,12 @@
 This repo includes the code that I must remember at all times when I encounter a problem
 <ol>
   <li>Large Array can be declared globally</li>
+  <li>
+    Copy by reference + Global Declarations reduces running time
+  </li>
+  <li>
+    Avoid <b>endl</b>, it increases runnning time
+   </li>
   <li>Bitsets may be highly useful in reducing complexities
     <br>
     <u>Example:</u>
@@ -32,7 +38,6 @@ This repo includes the code that I must remember at all times when I encounter a
         https://www.hackerearth.com/practice/algorithms/dynamic-programming/2-dimensional/practice-problems/algorithm/shift-the-array-4074fac2/description/
         <br>Approrach the question using 26^n and then see how to memoize<br><br>
       </li>
-    
     
    </ul>
 
