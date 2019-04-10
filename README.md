@@ -18,6 +18,9 @@ This repo includes the code that I must remember at all times when I encounter a
     :https://stackoverflow.com/questions/12968498/compare-function-in-lower-bound
   </li>
   <li>
+    <b>Distinct Elements in range l to r using BIT:</b> https://www.geeksforgeeks.org/queries-number-distinct-elements-subarray/<br>  
+  </li>
+  <li>
     Important DPs:
     <ul>
       <li>
