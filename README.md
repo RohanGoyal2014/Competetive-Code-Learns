@@ -43,7 +43,7 @@ This repo includes the code that I must remember at all times when I encounter a
       </li>
       <li>
           <b>
-            Algorithm for finding cycle length in unweighted graph(use bfs and approach below for unweighted undirected graph ) - Complexity O(e^2) [So far minimum for finding cycle length]
+            Algorithm for finding minimum cycle length in unweighted graph(use bfs and approach below for unweighted undirected graph ) - Complexity O(e^2) [So far minimum complexity for finding min cycle length I have seen]
           </b>
           https://www.geeksforgeeks.org/find-minimum-weight-cycle-undirected-graph/
        </li>
