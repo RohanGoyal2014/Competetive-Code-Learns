@@ -41,6 +41,12 @@ This repo includes the code that I must remember at all times when I encounter a
         https://www.hackerearth.com/practice/algorithms/dynamic-programming/2-dimensional/practice-problems/algorithm/shift-the-array-4074fac2/description/
         <br>Approrach the question using 26^n and then see how to memoize<br><br>
       </li>
+      <li>
+          <b>
+            Algorithm for finding cycle length in unweighted graph(use bfs and approach below for unweighted undirected graph ) - Complexity O(e^2) [So far minimum for finding cycle length]
+          </b>
+          https://www.geeksforgeeks.org/find-minimum-weight-cycle-undirected-graph/
+       </li>
     
    </ul>
 
