@@ -47,6 +47,9 @@ This repo includes the code that I must remember at all times when I encounter a
           </b>
           https://www.geeksforgeeks.org/find-minimum-weight-cycle-undirected-graph/
        </li>
+    <li>
+      Gray Codes differ by one bit in each successive step
+    </li>
     
    </ul>
 
