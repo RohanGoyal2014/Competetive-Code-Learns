@@ -50,6 +50,19 @@ This repo includes the code that I must remember at all times when I encounter a
     <li>
       <b>Gray Codes differ by one bit in each successive step</b>
     </li>
+     <li>
+       <strong> Method to generate subsets of a a number in binary-></strong> <br>
+       Let the number be x and tmp = x, then we can successively compute tmp=(tmp-1)&x, tmp will be the subset -> stop at 0<br>Example let x = 13, and thus tmp = 13,  now : <br>
+      ->First Subset : 13
+       <br>->Second Subbset : (13-1)&13 = 12
+       <br> ->Third Subset: (12-1)&13 = 9
+       <br> ->Fourth Subset: (9-1)&13 = 8
+       <br> ->Fifth Subset: (8-1)&13 = 5
+       <br> ->Sixth Subset: (5-1)%13  = 4
+       <br> ->Seventh Subset: (4-1)%13 = 1
+       <br> ->Eighth Subset: (1-0)&13 = 0
+       <br><b> Reference:</b> Inner loop of suboptimal solution section on https://codeforces.com/blog/entry/45223
+       </li>
     
    </ul>
 
