@@ -6,7 +6,7 @@ This repo includes the code that I must remember at all times when I encounter a
     Copy by reference + Global Declarations reduces running time
   </li>
   <li>
-    Avoid <b>endl</b>, it increases runnning time
+    Avoid <b>endl</b>, it increases runnning time. https://stackoverflow.com/questions/213907/stdendl-vs-n
    </li>
   <li>Bitsets may be highly useful in reducing complexities
     <br>
@@ -65,7 +65,5 @@ This repo includes the code that I must remember at all times when I encounter a
        </li>
     
    </ul>
-
-
   </li>
 </ol>
