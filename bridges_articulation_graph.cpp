@@ -2,6 +2,7 @@
  * Bridges in a graph
  * Link:https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/practice-problems/algorithm/rhezo-and-hackerearth-3/description/
  * For tutorial refer to Tushar Roy and William Fiset
+ * https://www.youtube.com/watch?v=K2rkXGltHXQ
  *
  * */
 
