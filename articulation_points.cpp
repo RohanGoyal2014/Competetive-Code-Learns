@@ -56,7 +56,7 @@ void dfs(int root,int parent,bool visited[],int low[],int disc_time[],vector<int
         }
         else
         {
-            low[root]=min(low[root],disc_time[i]);
+            low[root]=min(low[root],low[i]);
         }
     }
 }
