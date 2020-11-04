@@ -48,8 +48,9 @@ This repo includes the code that I must remember at all times when I encounter a
           https://www.geeksforgeeks.org/find-minimum-weight-cycle-undirected-graph/
        </li>
     <li>
-      <b>Gray Codes differ by one bit in each successive step</b>
+      <b>Gray Codes differ by one bit in each successive step</b><br><br>
     </li>
+      <li>https://www.quora.com/q/competitiveprogramming2/Cut-Vertex-Articulation-point<br><br></li>
      <li>
        <strong> Method to generate subsets of a a number in binary-></strong> <br>
        Let the number be x and tmp = x, then we can successively compute tmp=(tmp-1)&x, tmp will be the subset -> stop at 0<br>Example let x = 13, and thus tmp = 13,  now : <br>
