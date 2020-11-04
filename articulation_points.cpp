@@ -1,6 +1,7 @@
 /*
  * Articulation Points in a graph
  * Link:https://www.hackerearth.com/practice/algorithms/graphs/articulation-points-and-bridges/practice-problems/algorithm/rhezo-and-destructive-mind/
+ * Reference of already visited condition part: https://www.quora.com/q/competitiveprogramming2/Cut-Vertex-Articulation-point
  * For tutorial refer to GFG,Tushar Roy and William Fiset
  *
  * */
